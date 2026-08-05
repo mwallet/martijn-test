@@ -15,4 +15,3 @@ spec:
   type: database
   lifecycle: experimental
   owner: group:platform-team
-  system: postgres-platform
