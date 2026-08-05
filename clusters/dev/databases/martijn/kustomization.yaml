@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - cluster.yaml
+  - scheduled-backup.yaml
+{% if values.create_pooler %}
+  - pooler.yaml
+{% endif %}
+{% if values.create_argocd_application %}
+  - argocd-application.yaml
+{% endif %}
+
+commonLabels:
+  app.kubernetes.io/name: ${{ values.cluster_name }}
+  app.kubernetes.io/managed-by: rhdh
+  app.kubernetes.io/part-of: cnpg-platform
+  environment: ${{ values.namespace_prefix }}
