@@ -1,22 +1,20 @@
-{% if values.create_argocd_application %}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ${{ values.cluster_name }}-cnpg
-  namespace: ${{ values.argocd_namespace }}
+  name: martijn-cnpg
+  namespace: openshift-gitops
 spec:
-  project: ${{ values.argocd_project }}
+  project: default
   source:
-    repoURL: https://${{ values.repo_url | replace("github.com?owner=", "github.com/") | replace("&repo=", "/") }}.git
-    targetRevision: ${{ values.manifest_branch }}
-    path: ${{ values.manifest_path }}/${{ values.cluster_name }}
+    repoURL: https://github.com/mwallet/martijn-test.git
+    targetRevision: main
+    path: clusters/dev/databases/martijn
   destination:
-    server: ${{ values.destination_server }}
-    namespace: ${{ values.namespace }}
+    server: https://kubernetes.default.svc
+    namespace: dbaas-onte-martijn
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-{% endif %}
