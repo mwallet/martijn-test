@@ -9,7 +9,6 @@ metadata:
     - postgres
     - openshift
     - gitops
-    - 
   annotations:
     github.com/project-slug: mwallet/martijn-test
 spec:
