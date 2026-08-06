@@ -5,12 +5,8 @@ resources:
   - namespace.yaml
   - cluster.yaml
   - scheduled-backup.yaml
-{% if values.create_pooler %}
   - pooler.yaml
-{% endif %}
-{% if values.create_argocd_application %}
   - argocd-application.yaml
-{% endif %}
 
 commonLabels:
   app.kubernetes.io/name: ${{ values.cluster_name }}
