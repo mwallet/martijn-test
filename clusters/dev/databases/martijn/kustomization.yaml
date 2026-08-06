@@ -5,5 +5,15 @@ resources:
   - namespace.yaml
   - cluster.yaml
   - scheduled-backup.yaml
+
   - pooler.yaml
+
+
   - argocd-application.yaml
+
+
+commonLabels:
+  app.kubernetes.io/name: martijn
+  app.kubernetes.io/managed-by: rhdh
+  app.kubernetes.io/part-of: cnpg-platform
+  environment: 

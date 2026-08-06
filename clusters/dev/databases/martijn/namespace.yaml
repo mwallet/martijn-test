@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: ${{ values.namespace }}
+  name: dbaas-onte-martijn-test
   labels:
     app.kubernetes.io/managed-by: argocd
-    environment: ${{ values.namespace_prefix }}
+    environment: 

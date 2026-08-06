@@ -1,10 +1,10 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: ScheduledBackup
 metadata:
-  name: ${{ values.cluster_name }}-daily
-  namespace: ${{ values.namespace }}
+  name: martijn-daily
+  namespace: dbaas-onte-martijn-test
 spec:
-  schedule: "${{ values.backup_schedule }}"
+  schedule: "0 2 * * *"
   backupOwnerReference: self
   cluster:
-    name: ${{ values.cluster_name }}
+    name: martijn

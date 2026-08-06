@@ -1,8 +1,9 @@
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: martijn-cnpg
-  namespace: argocd
+  namespace: openshift-gitops
 spec:
   project: default
   source:
@@ -11,7 +12,7 @@ spec:
     path: clusters/dev/databases/martijn
   destination:
     server: https://kubernetes.default.svc
-    namespace: dbaas-onte-martijn
+    namespace: dbaas-onte-martijn-test
   syncPolicy:
     automated:
       prune: true
