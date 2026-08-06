@@ -1,4 +1,3 @@
-{% if values.create_pooler %}
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
 metadata:
@@ -14,4 +13,3 @@ spec:
     parameters:
       max_client_conn: "1000"
       default_pool_size: "25"
-{% endif %}
