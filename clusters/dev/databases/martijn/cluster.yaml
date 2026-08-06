@@ -17,8 +17,6 @@ spec:
     size: 5Gi
     storageClass: crc-csi-hostpath-provisioner
 
-
-
   enableSuperuserAccess: false
 
   bootstrap:
