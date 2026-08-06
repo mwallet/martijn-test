@@ -15,7 +15,7 @@ spec:
 
   storage:
     size: 5Gi
-    storageClass: ocs-external-storagecluster-ceph-rbd
+    storageClass: crc-csi-hostpath-provisioner
 
 
 
