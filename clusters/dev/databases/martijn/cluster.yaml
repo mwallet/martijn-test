@@ -17,15 +17,7 @@ spec:
     size: 5Gi
     storageClass: ocs-external-storagecluster-ceph-rbd
 
-{% if values.extension_mode == 'geo-imagevolume' and values.enable_postgis %}
-  postgresql:
-    extensions:
-      - name: postgis
-        image:
-          reference: ghcr.io/cloudnative-pg/postgis-extension:18
-          ld_library_path:
-            - system
-{% endif %}
+
 
   enableSuperuserAccess: false
 
@@ -33,10 +25,3 @@ spec:
     initdb:
       database: app
       owner: app
-{% if values.enable_postgis %}
-      postInitTemplateSQL:
-        - CREATE EXTENSION IF NOT EXISTS postgis;
-{% if values.enable_pgrouting %}
-        - CREATE EXTENSION IF NOT EXISTS pgrouting;
-{% endif %}
-{% endif %}
