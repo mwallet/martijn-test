@@ -7,9 +7,3 @@ resources:
   - scheduled-backup.yaml
   - pooler.yaml
   - argocd-application.yaml
-
-labels:
-  app.kubernetes.io/name: ${{ values.cluster_name }}
-  app.kubernetes.io/managed-by: rhdh
-  app.kubernetes.io/part-of: cnpg-platform
-  environment: ${{ values.namespace_prefix }}
